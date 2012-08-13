@@ -1,0 +1,27 @@
+body
+{
+	font-family: 'Segoe UI Light';
+	color: white;
+	font-size: 110%;
+	background-color: black;
+}
+
+header > h1
+{
+	font-weight: bold;
+	text-align: center;
+}
+
+body > p
+{
+	margin: 0 auto;
+	width: 512px;
+	height: 512px;
+}
+
+footer > p
+{
+	text-align: center;
+	font-size: 80%;
+	font-variant: small-caps;
+}
