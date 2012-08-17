@@ -4,3 +4,4 @@ azure_error
 *.exe
 *.o
 *.dblite
+*.pid
