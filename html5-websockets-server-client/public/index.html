@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>WebSocket Client and Server</title>
+    </head>
+    <script type="text/javascript">
+        var lastMessage;
+
+        window.onload = function() {
+            var socket = new WebSocket("ws://localhost:3000/");
+
+            function send() {
+                lastMessage = +new Date;
+                socket.send("Ping!");
+            }
+
+            function handleMessage(eventArguments) {
+                console.log("Received:", eventArguments.data);
+
+                document.getElementById("latency").innerHTML = new Date - lastMessage;
+                send();
+            }
+
+            socket.onopen = function() {
+                send();
+            };
+
+            socket.onmessage = function(events) { 
+                handleMessage(events);
+            };
+
+            socket.onerror = function(eventArguments) {
+                console.error(eventArguments.data);
+            };
+        };
+    </script>
+    <body>
+        <h1>WebSockets:</h1>
+        <h2>Latency <span id="latency"></span>ms</h2>
+    </body>
+</html>

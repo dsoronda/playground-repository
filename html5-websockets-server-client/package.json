@@ -1,0 +1,10 @@
+{
+    "name" : "html5-websocket-webserver-and-client",
+    "version" : "0.1.0",
+    "dependencies" : {
+        "websocket.io": "0.x.x",        
+        "socket.io" : "*",
+        "express" : "3.x.x",
+        "colors" : "*"
+    }
+}
