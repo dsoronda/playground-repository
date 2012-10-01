@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>socket.io Client and Server</title>
+    </head>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        var lastMessage,
+            socket = io.connect("http://localhost");
+
+        lastMessage = +new Data;
+        socket.emit("message", "Ping!");
+
+        socket.on("message", function () {
+            document.getElementById("latency").innerHTML = new Data - lasteMessage;
+        });
+    </script>
+    <body>
+        <h1>WebSockets:</h1>
+        <h2>Latency <span id="latency"></span>ms</h2>
+    </body>
+</html>
