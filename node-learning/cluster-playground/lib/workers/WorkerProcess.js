@@ -1,4 +1,4 @@
-var Worker = require("./Worker.js").Worker;
+var WorkerInstance = require("./WorkerInstance.js").WorkerInstance;
 
 (function(global) {
 
@@ -17,7 +17,7 @@ var Worker = require("./Worker.js").Worker;
         return -1;
     };
 
-    worker = new Worker(process);
+    worker = new WorkerInstance(process);
 
     worker.on("task-started", function() {
         global.process.send({ cmd : "worker-started" });

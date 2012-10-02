@@ -1,6 +1,8 @@
 var utils = require("util"),
     events = require("events"),
     cluster = require('cluster'),
+
+    ConsoleLogger = require("./maintenance/ConsoleLogger.js").ConsoleLogger,
     QueueAbstraction = require("./queues/QueueAbstraction.js").QueueAbstraction,
 
     NO_WORKER_ASSIGNED = -1;
@@ -50,13 +52,10 @@ function spawnOneMore(link) {
     return id;
 }
 
-function DispatcherConstructor(transactionManagerGateway, cardManagerGateway, workersMaxAmount, intervalDuration, loggerInstance) {
+function DispatcherConstructor(workersMaxAmount, intervalDuration) {
     var owner = this;
 
-    this.logger = loggerInstance;
-
-    this.transactionManager = transactionManagerGateway;
-    this.cardManager = cardManagerGateway;
+    this.logger = new ConsoleLogger();
 
     this._intervalDuration = intervalDuration;
 
@@ -68,7 +67,6 @@ function DispatcherConstructor(transactionManagerGateway, cardManagerGateway, wo
     this._workersSpawnedAmount = 0;
     this._retries = 0;
 
-    // Setting cluster options - worker process file and silent output.
     cluster.setupMaster({
         exec : "lib/workers/WorkerProcess.js"
     });
@@ -118,7 +116,6 @@ DispatcherConstructor.prototype.handleNextLinks = function() {
 };
 
 DispatcherConstructor.prototype.eventLoop = function() {
-    // TODO
     this._pending.add(NO_WORKER_ASSIGNED, "Link1");
     this.handleNextLinks();
 

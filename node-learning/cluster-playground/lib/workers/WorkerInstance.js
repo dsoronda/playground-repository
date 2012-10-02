@@ -1,22 +1,22 @@
 var utils = require("util"),
     events = require("events");
 
-function WorkerConstructor(callback) {
+function WorkerInstanceConstructor(callback) {
     this._callback = callback;
 }
 
-utils.inherits(WorkerConstructor, events.EventEmitter);
+utils.inherits(WorkerInstanceConstructor, events.EventEmitter);
 
-WorkerConstructor.prototype.spawn = function() {
+WorkerInstanceConstructor.prototype.spawn = function() {
     this.emit("task-started");
     this.process();
 };
 
-WorkerConstructor.prototype.handleNextLink = function(nextLink) {
+WorkerInstanceConstructor.prototype.handleNextLink = function(nextLink) {
     this.emit("next-link", nextLink);
 };
 
-WorkerConstructor.prototype.process = function() {
+WorkerInstanceConstructor.prototype.process = function() {
     var err = null;
 
     try {
@@ -29,4 +29,4 @@ WorkerConstructor.prototype.process = function() {
     this.emit("die", err);
 };
 
-exports.Worker = WorkerConstructor;
+exports.WorkerInstance = WorkerInstanceConstructor;

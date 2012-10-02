@@ -1,4 +1,4 @@
-var Worker = require("../lib/workers/Worker.js").Worker,
+var WorkerInstance = require("../lib/workers/WorkerInstance.js").WorkerInstance,
     EventEmitter = require("events").EventEmitter;
 
 exports.WorkerPrototypeTests = {
@@ -9,7 +9,7 @@ exports.WorkerPrototypeTests = {
   "Worker has a EventEmitter in prototype chain": function(test) {
     test.expect(1);
 
-    var worker = new Worker(function() {});
+    var worker = new WorkerInstance(function() {});
 
     test.equal(worker instanceof EventEmitter, true, "should inherits from EventEmitter");
 
@@ -21,7 +21,7 @@ exports.WorkerPrototypeTests = {
 
     var started = false,
         finished = false,
-        worker = new Worker(function() {});
+        worker = new WorkerInstance(function() {});
 
     worker.once("task-started", function() { started = true ; });
     worker.once("task-finished", function() { finished = true ; });
@@ -37,7 +37,7 @@ exports.WorkerPrototypeTests = {
     test.expect(1);
 
     var lastTransactionId = -1,
-        worker = new Worker(function() { return 667; });
+        worker = new WorkerInstance(function() { return 667; });
 
     worker.once("task-finished", function(result) { lastTransactionId = result; });
     worker.spawn();
@@ -51,7 +51,7 @@ exports.WorkerPrototypeTests = {
     test.expect(1);
 
     var die = false,
-        worker = new Worker(function() { return 667; });
+        worker = new WorkerInstance(function() { return 667; });
 
     worker.once("die", function() { die = true; });
     worker.spawn();
@@ -66,7 +66,7 @@ exports.WorkerPrototypeTests = {
 
     var error = null,
         die = false,
-        worker = new Worker(function() { throw "Error"; });
+        worker = new WorkerInstance(function() { throw "Error"; });
 
     worker.once("die", function(err) {
         die = true;
