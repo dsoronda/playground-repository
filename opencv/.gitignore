@@ -1,0 +1,4 @@
+hsv-mask
+*.o
+*.out
+*.dblite
