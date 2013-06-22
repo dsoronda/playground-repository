@@ -1,0 +1,12 @@
+node_modules
+test-results
+azure_error
+
+*.log
+*.exe
+
+*.o
+
+*.dblite
+
+*.pid
