@@ -1,0 +1,111 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video 
+{
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: Segoe UI;
+    font-size: 14px;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section 
+{
+    display: block;
+}
+
+#container 
+{
+    margin: 0 auto;
+    width: 770px;
+    position: relative;
+}
+
+#header
+{
+    width: 100%;
+    height: 70px;
+    background-color: #0099FF;    
+}
+
+#menu
+{
+    top: 40px;
+    left: 0px;
+    width: 610px;
+    height: 30px;
+    position: absolute;
+    background-color: #000099;
+}
+
+#subheader
+{
+    float: left;
+    width: 610px;
+    height: auto !important;
+    height: 70px; /* IE */
+    min-height: 70px;
+    display: inline;
+    background-color: #CC9966;
+}
+
+#left
+{
+    float: right;
+    width: 160px;
+    height: auto !important;
+    height: 370px; /* IE */
+    min-height: 370px;
+    display: inline;
+    background-color: #FFFF99;  
+}
+
+#submenu
+{
+    top: 90px;
+    right: 10px;
+    width: 140px;
+    height: 170px;
+    position: absolute;
+    background-color: #FFFF33;    
+}
+
+#middle
+{
+    float: right;
+    width: 450px;
+    height: auto !important;
+    height: 350px; /* IE */
+    min-height: 350px;
+    display: inline;    
+    background-color: #CC6666;
+}
+
+#right
+{
+    float: left;
+    width: 160px;
+    height: auto !important;
+    height: 300px; /* IE */
+    min-height: 300px;
+    display: inline;
+    background-color: #9900CC;
+}
+
+#footer
+{
+    clear: both;
+    width: 100%;
+    height: 60px;
+    background-color: #669933; 
+}

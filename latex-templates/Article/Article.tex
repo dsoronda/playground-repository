@@ -1,0 +1,36 @@
+﻿% --------------------------------------------------------
+% -  Wojtek "afronski" Gawroński        -          2o11  -
+% -  Article template                                    -
+% --------------------------------------------------------
+\documentclass[11pt,a4paper]{article}
+\usepackage{polski}
+
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage[cp1250]{inputenc}
+
+\title{Simple article title}
+\author{Wojciech Gawroński (afronski@gmail.com)}
+
+% Source code listings.
+\newenvironment{mylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
+{\end{list}}
+
+\newenvironment{mytinylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\tiny\bfseries}
+{\end{list}}
+
+\begin{document}
+	\maketitle
+	\newpage
+
+	\tableofcontents
+	\newpage
+
+\begin{thebibliography}{99}
+\end{thebibliography}
+
+\end{document}

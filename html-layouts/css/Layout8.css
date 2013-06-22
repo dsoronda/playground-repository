@@ -1,0 +1,99 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video 
+{
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: Segoe UI;
+    font-size: 14px;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section 
+{
+    display: block;
+}
+
+body
+{
+	background: #C0FFEE;
+	font: 1em Georgia, serif;
+	padding: 1em 2.5%;
+}
+
+.quotebox
+{
+	float: left;
+	width: 10em;
+	font-size: 90%;
+	padding: 1.5em 2em 1em;
+	margin: 0.5em;
+	border: 2px solid #8D7961;
+	background: #FFF;
+}
+
+.quotebox span
+{
+	font-style: italic;
+	font-size: smaller;
+	display: block;
+	margin-top: 0.25em;
+	text-align: right;
+}
+
+@media all and (min-width: 75.51em)
+{
+    .quotebox:nth-child(5n+1)
+    { 
+        clear: left;
+    }
+}
+
+@media all and (min-width: 60.01em) and (max-width: 75.5em)
+{
+    .quotebox:nth-child(4n+1)
+    { 
+        clear: left;
+    }@media all and (min-width: 30.01em) and (max-width: 45.5em)
+{
+    .quotebox:nth-child(2n+1)
+    { 
+        clear: left;
+    }
+}
+}
+
+@media all and (min-width: 45.51em) and (max-width: 60em)
+{
+    .quotebox:nth-child(3n+1)
+    { 
+        clear: left;
+    }
+}
+
+
+@media all and (min-width: 30.01em) and (max-width: 45.5em)
+{
+    .quotebox:nth-child(2n+1)
+    { 
+        clear: left;
+    }
+}
+
+@media all and (max-width: 30em)
+{
+    .quotebox
+    { 
+        clear: left;
+    }
+}

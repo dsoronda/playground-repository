@@ -1,0 +1,11 @@
+{
+    "name": "requirejs-starter",
+    "version": "0.1.0",
+    "author": "Wojtek Gawroński",
+    "dependencies": {
+        "jquery": null,
+        "underscore-amd": null,
+        "backbone-amd": null,
+        "requirejs": null
+    }
+}

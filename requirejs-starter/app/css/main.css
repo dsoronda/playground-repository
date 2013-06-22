@@ -1,0 +1,5 @@
+.box {
+    color: red;
+}
+
+@import 'buttons.css'

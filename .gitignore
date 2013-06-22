@@ -6,3 +6,5 @@ azure_error
 *.dblite
 *.pid
 *.ogg
+*.pyc
+*.swp
