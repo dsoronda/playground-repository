@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyServer", "NancyServer\NancyServer.csproj", "{08D0A4F1-AFC0-41A8-8AC4-C9959D17EF3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08D0A4F1-AFC0-41A8-8AC4-C9959D17EF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D0A4F1-AFC0-41A8-8AC4-C9959D17EF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D0A4F1-AFC0-41A8-8AC4-C9959D17EF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D0A4F1-AFC0-41A8-8AC4-C9959D17EF3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = NancyServer\NancyServer.csproj
+	EndGlobalSection
+EndGlobal
