@@ -1,10 +1,9 @@
+"use strict";
+
 var Transform = require("stream").Transform,
 
     http = require("http"),
-    fs = require("fs"),
     util = require("util"),
-
-    filename = process.argv[2],
 
     server;
 

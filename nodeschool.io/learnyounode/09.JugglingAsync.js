@@ -1,8 +1,10 @@
+"use strict";
+
 var http = require("http"),
 
     urls = process.argv.slice(2),
 
-    count = urls.length;
+    count = urls.length,
     pages = urls.map(function() { return ""; });
 
 function append(count, buffer) {

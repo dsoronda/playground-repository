@@ -1,3 +1,5 @@
+"use strict";
+
 var filtering = require("./filtering"),
     directory = process.argv[2],
     extension = process.argv[3];

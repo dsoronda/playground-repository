@@ -1,3 +1,5 @@
+"use strict";
+
 var fs = require("fs"),
     directory = process.argv[2],
     extension = process.argv[3];

@@ -1,7 +1,9 @@
+"use strict";
+
 var through = require("through"),
     split = require("split"),
 
-    lineCount = 0;
+    lineCount = 0,
 
     transformer = through(function(buffer) {
       var line = buffer.toString();

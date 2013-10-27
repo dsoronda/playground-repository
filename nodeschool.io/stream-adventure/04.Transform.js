@@ -1,3 +1,5 @@
+"use strict";
+
 var through = require("through"),
 
     transformer = through(function(buffer) {
