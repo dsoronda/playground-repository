@@ -1,0 +1,32 @@
+body {
+  color: white;
+
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 18px;
+
+  background-color: #39576C;
+}
+
+section {
+  text-align: center;
+
+  width: 512px;
+  margin: 15px auto 0;
+}
+
+canvas {
+  width: 512px;
+  height: 512px;
+
+  border-radius: 5px;
+  border: 1px dashed white;
+
+  background-color: transparent;
+}
+
+footer p {
+  text-align: center;
+
+  font-size: 0.8em;
+  font-variant: small-caps;
+}
