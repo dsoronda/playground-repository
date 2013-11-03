@@ -30,8 +30,7 @@
            polyfill;
   } ());
 
-  // TODO: Collision detection (obstacles and walls).
-  // TODO: Boids logic and mechanisms.
+  // TODO: Collision detection with obstacles.
   // TODO: Predators logic and mechanisms.
   // TODO: Mobile view.
   // TODO: Prepare skeleton for 3D (three.js).
@@ -49,7 +48,7 @@
 
   function render(dt) {
     boids.forEach(function(boid) {
-      boid.calculate(dt);
+      boid.calculate(boids, dt);
       boid.update(dt);
       boid.draw();
     });
@@ -57,7 +56,7 @@
 
   function renderWithDebugMode(dt) {
     boids.forEach(function(boid) {
-      boid.calculate(dt);
+      boid.calculate(boids, dt);
       boid.update(dt);
       boid.drawDebug();
     });
@@ -112,14 +111,12 @@
   // Attaching events.
 
   canvas.addEventListener("mousemove", function(event) {
-    boids.forEach(function(a) {
-      a.velocity.x = event.offsetX - a.position.x;
-      a.velocity.y = event.offsetY - a.position.y;
+    boids.forEach(function(boid) {
+      boid.velocity.x = event.offsetX - boid.position.x;
+      boid.velocity.y = event.offsetY - boid.position.y;
 
-      a.velocity = MathModule.normalize(a.velocity);
-
-      a.velocity.x *= 10;
-      a.velocity.y *= 10;
+      MathModule.normalize(boid.velocity);
+      MathModule.multiplyByScalar(boid.velocity, 10);
     });
   });
 
