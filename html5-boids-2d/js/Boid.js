@@ -2,7 +2,7 @@ window.Boid = (function(MathModule, Entity) {
   "use strict";
 
   var BoidColor = "#52A617",
-      BoidsCount = 10;
+      BoidsCount = 50;
 
   function Boid() {
     Entity.apply(this, arguments);
@@ -12,6 +12,14 @@ window.Boid = (function(MathModule, Entity) {
 
   Boid.prototype = Object.create(Entity.prototype);
   Boid.prototype.constructor = Boid;
+
+  // Public methods.
+
+  Boid.prototype.calculate = function(dt) {
+
+  };
+
+  // Static methods.
 
   Boid.initialize = function(context) {
     var boids = [],

@@ -12,6 +12,16 @@ window.Predator = (function(MathModule, Entity) {
   Predator.prototype = Object.create(Entity.prototype);
   Predator.prototype.constructor = Predator;
 
+  // Public methods.
+
+  Predator.prototype.calculate = function() {};
+
+  // Static methods.
+
+  Predator.initialize = function() {
+    return [];
+  };
+
   return Predator;
 
 } (window.MathModule, window.Entity));

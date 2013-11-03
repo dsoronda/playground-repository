@@ -25,6 +25,12 @@ window.Obstacle = (function(MathModule) {
     this.context.fill();
   };
 
+  // Static methods.
+
+  Obstacle.initialize = function() {
+    return [];
+  };
+
   return Obstacle;
 
 } (window.MathModule));

@@ -7,10 +7,13 @@
       width = canvas.width,
       height = canvas.height,
 
-      boids = [],
+      boids,
+      predators,
+      obstacles,
 
-      debugMode = false,
-      last = null;
+      debugMode,
+      performStep,
+      last;
 
   // Polyfills.
 
@@ -44,15 +47,49 @@
 
   // Application logic.
 
+  function render(dt) {
+    boids.forEach(function(boid) {
+      boid.calculate(dt);
+      boid.update(dt);
+      boid.draw();
+    });
+  }
+
+  function renderWithDebugMode(dt) {
+    boids.forEach(function(boid) {
+      boid.calculate(dt);
+      boid.update(dt);
+      boid.drawDebug();
+    });
+  }
+
   function initialization(context) {
+    last = null;
+
+    // Setup drawing mode.
+    debugMode = false;
+    performStep = render;
+
+    // Setup drawing constraints.
     Entity.setDrawingArea(width, height);
 
+    // Initialize entities.
+
     boids = Boid.initialize(context);
+    predators = Obstacle.initialize(context);
+
+    obstacles = Predator.initialize(context);
   }
 
   function handleKeyboard(event) {
     // "D" or "d" enables debug mode.
     if (event.keyCode === 68 || event.keyCode === 100) {
+      if (debugMode) {
+        performStep = renderWithDebugMode;
+      } else {
+        performStep = render;
+      }
+
       debugMode = !debugMode;
     }
   }
@@ -66,10 +103,7 @@
       dt = (timestamp - last) / 100;
 
       clearCanvas();
-      boids.forEach(function(boid) {
-        boid.update(dt);
-        debugMode ? boid.drawDebug() : boid.draw();
-      });
+      performStep(dt);
     }
 
     last = timestamp;

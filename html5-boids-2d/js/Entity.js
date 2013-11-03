@@ -6,8 +6,9 @@ window.Entity = (function(MathModule) {
       EntitiesSideSize = 10,
 
       EntitySeeingAngle = 290 * MathModule.ToRadians,
-      EntitySeeingDistance = 12,
-      EntityNeighbourhoodDistance = 20,
+
+      EntityNeighbourhoodDistance = 12,
+      EntitySeeingDistance = 25,
 
       axisX = MathModule.createVectorForAxisX(),
 
@@ -83,9 +84,11 @@ window.Entity = (function(MathModule) {
     this.velocity = MathModule.createStartingVelocityVector();
 
     this.angle = EntitySeeingAngle / 2;
-    this.distance = EntitySeeingDistance;
-    this.neighbourhood = EntityNeighbourhoodDistance;
+    this.distance = EntityNeighbourhoodDistance;
+    this.neighbourhood = EntitySeeingDistance;
   }
+
+  Entity.prototype.calculate = function() {};
 
   Entity.prototype.update = function(dt) {
     this.position.x += this.velocity.x * dt;
