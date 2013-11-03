@@ -1,4 +1,4 @@
-(function(window, MathModule, Boid, Predator, Obstacle) {
+(function(window, MathModule, Entity, Boid, Predator, Obstacle) {
   "use strict";
 
   var canvas = document.querySelector("canvas"),
@@ -45,6 +45,8 @@
   // Application logic.
 
   function initialization(context) {
+    Entity.setDrawingArea(width, height);
+
     boids = Boid.initialize(context);
   }
 
@@ -77,12 +79,10 @@
 
   canvas.addEventListener("mousemove", function(event) {
     boids.forEach(function(a) {
-      var temporaryVector = {
-        x: event.offsetX - a.position.x,
-        y: event.offsetY - a.position.y
-      };
+      a.velocity.x = event.offsetX - a.position.x;
+      a.velocity.y = event.offsetY - a.position.y;
 
-      a.velocity = MathModule.normalize(temporaryVector);
+      a.velocity = MathModule.normalize(a.velocity);
 
       a.velocity.x *= 10;
       a.velocity.y *= 10;
@@ -96,4 +96,4 @@
   initialization(context);
   renderLoop();
 
-} (window, window.MathModule, window.Boid, window.Predator, window.Obstacle));
+} (window, window.MathModule, window.Entity, window.Boid, window.Predator, window.Obstacle));

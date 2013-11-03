@@ -12,9 +12,30 @@ window.Entity = (function(MathModule) {
       axisX = MathModule.createVectorForAxisX(),
 
       halfHeight = (EntitiesSideSize * (Math.sqrt(3) / 2.0)) / 2.0,
-      halfSide = EntitiesSideSize / 2;
+      halfSide = EntitiesSideSize / 2,
+
+      width = 0,
+      height = 0;
 
   // Private methods.
+
+  function clamp(vector) {
+    if (vector.x >= width) {
+      vector.x = 0;
+    }
+
+    if (vector.x < 0) {
+      vector.x = width;
+    }
+
+    if (vector.y >= height) {
+      vector.y = 0;
+    }
+
+    if (vector.y < 0) {
+      vector.y = height;
+    }
+  }
 
   function drawEntity() {
     this.context.fillStyle = this.color;
@@ -69,6 +90,8 @@ window.Entity = (function(MathModule) {
   Entity.prototype.update = function(dt) {
     this.position.x += this.velocity.x * dt;
     this.position.y += this.velocity.y * dt;
+
+    clamp(this.position);
   };
 
   Entity.prototype.drawDebug = function() {
@@ -93,6 +116,12 @@ window.Entity = (function(MathModule) {
 
       drawEntity.call(this);
     this.context.restore();
+  };
+
+  // Static methods.
+  Entity.setDrawingArea = function(clientWidth, clientHeight) {
+    width = clientWidth;
+    height = clientHeight;
   };
 
   return Entity;

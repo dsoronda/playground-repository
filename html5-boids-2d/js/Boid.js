@@ -2,7 +2,7 @@ window.Boid = (function(MathModule, Entity) {
   "use strict";
 
   var BoidColor = "#52A617",
-      BoidsCount = 1000;
+      BoidsCount = 10;
 
   function Boid() {
     Entity.apply(this, arguments);
