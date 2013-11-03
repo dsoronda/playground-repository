@@ -32,6 +32,7 @@
 
   // TODO: Collision detection with obstacles.
   // TODO: Predators logic and mechanisms.
+  // TODO: Collect data only from closest ones.
   // TODO: Performance and visual issues (GC, redrawing whole screen, smooth move, no collisions etc.).
   // TODO: Mobile view.
   // TODO: Prepare skeleton for 3D (three.js).

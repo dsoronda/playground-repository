@@ -25,14 +25,18 @@ window.Boid = (function(MathModule, Entity) {
 
   function boidCalculation(boid, index) {
     if (this.number !== index) {
+      // Cohesion rule.
       MathModule.addToVector(CohesionVector, boid.position);
 
+      // Calculating distance.
       DistanceVector = MathModule.vectorsSubstraction(boid.position, this.position);
 
+      // Separation rule.
       if (MathModule.vectorLength(DistanceVector) < this.neighbourhood) {
         MathModule.substractFromVector(SeparationVector, DistanceVector);
       }
 
+      // Alignment rule.
       MathModule.addToVector(AlignmentVector, boid.velocity);
     }
   }
@@ -59,22 +63,27 @@ window.Boid = (function(MathModule, Entity) {
 
     boids.forEach(boidCalculation.bind(this));
 
+    // Cohesion rule - get specified factor from it.
     MathModule.divideVectorByScalar(CohesionVector, BoidsCount - 1);
     MathModule.substractFromVector(CohesionVector, this.position);
     MathModule.divideVectorByScalar(CohesionVector, FactorForCohesionVector);
 
+    // Alignment rule - get specified factor from it.
     MathModule.divideVectorByScalar(AlignmentVector, BoidsCount - 1);
     MathModule.substractFromVector(AlignmentVector, this.velocity);
     MathModule.divideVectorByScalar(AlignmentVector, FactorForAlignmentVector);
 
+    // Applying delta time between frames.
     MathModule.multiplyByScalar(CohesionVector, dt);
     MathModule.multiplyByScalar(SeparationVector, dt);
     MathModule.multiplyByScalar(AlignmentVector, dt);
 
+    // Adding it to the velocity.
     MathModule.addToVector(this.velocity, CohesionVector);
     MathModule.addToVector(this.velocity, SeparationVector);
     MathModule.addToVector(this.velocity, AlignmentVector);
 
+    // Limit velocity.
     if (MathModule.vectorLength(this.velocity) > VelocityLimit) {
       MathModule.normalize(this.velocity);
       MathModule.multiplyByScalar(this.velocity, VelocityLimit);
