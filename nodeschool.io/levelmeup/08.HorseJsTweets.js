@@ -2,7 +2,7 @@
 
 module.exports = function (db, date, callback) {
   var tweets = [],
-      endDate = date + "\xff";
+      endDate = date + "\xFF";
 
   function gatherTweet(data) {
     tweets.push(data.value);
