@@ -8,7 +8,7 @@ channel.queue_declare(queue = "hello")
 
 print " [*] Waiting for messages. To exit press CTRL+C."
 
-def callback(channel, method, properties, body):
+def onMessageReceive(channel, method, properties, body):
     print " [x] Received message with body %r" % (body,)
 
     time.sleep(body.count("."))
@@ -16,5 +16,5 @@ def callback(channel, method, properties, body):
 
     channel.basic_ack(delivery_tag = method.delivery_tag)
 
-channel.basic_consume(callback, queue = "hello")
+channel.basic_consume(onMessageReceive, queue = "hello")
 channel.start_consuming()
