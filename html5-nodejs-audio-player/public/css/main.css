@@ -1,0 +1,40 @@
+body {
+  color: white;
+
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 18px;
+
+  background-color: #39576C;
+}
+
+.container {
+  margin: 15px auto 0;
+}
+
+section {
+  text-align: center;
+  width: 512px;
+}
+
+nav {
+  width: 450px;
+}
+
+#songs li {
+  text-decoration: none;
+}
+
+#songs li:hover {
+  text-decoration: underline;
+}
+
+li[data-playing=true] {
+  color: lightgreen;
+}
+
+footer {
+  text-align: center;
+
+  font-size: 0.8em;
+  font-variant: small-caps;
+}

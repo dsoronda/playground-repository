@@ -1,0 +1,18 @@
+{
+  "name": "html5-nodejs-audio-player",
+
+  "version": "0.1.0",
+  "description": "Audio player built on top of Node.js (with use of express) and HTML5 <audio> tag.",
+
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+
+  "author": "Wojciech Gawroński",
+  "license": "MIT",
+
+  "dependencies": {
+    "express": "~3.4.5"
+  }
+}
