@@ -2,6 +2,7 @@
 
 var LIMIT = 5;
 
+var util = require("util");
 var webDriver = require("selenium-webdriver");
 
 var links = [
@@ -19,6 +20,15 @@ function waitUntilPageIsFullyLoaded(driver) {
   );
 }
 
+function slug(value) {
+  return value.toLowerCase()
+              .trim()
+              .replace(/#/g, "sharp")
+              .replace(/:|'|"|&|’|`|\?/g, "")
+              .replace(/\s{2,}/g, " ")
+              .replace(/\s/g, "-");
+}
+
 function loadPart(offset, next) {
   var clone = links.slice();
 
@@ -31,20 +41,24 @@ function loadPart(offset, next) {
 
       driver.get(link).then(function () {
         driver.wait(waitUntilPageIsFullyLoaded.bind(null, driver), 1000).then(function () {
-          driver.findElement(webDriver.By.tagName("video")).then(
-            function (video) {
-              video.getAttribute("src").then(
-                function (source) {
-                  console.log(source);
-                  driver.quit();
-                },
-                function () {
-                  console.log("Tag 'video' does not have 'src' attribute for '%s'.", link);
-                  driver.quit();
-                }
-              );
-            }
-          );
+          driver.findElement(webDriver.By.css("h1[itemprop='name']")).getText().then(function (title) {
+            var fileName = util.format("%s.mp4", slug(title));
+
+            driver.findElement(webDriver.By.tagName("video")).then(
+              function (video) {
+                video.getAttribute("src").then(
+                  function (source) {
+                    console.log(fileName, source);
+                    driver.quit();
+                  },
+                  function () {
+                    console.log("Tag 'video' does not have 'src' attribute for '%s'.", link);
+                    driver.quit();
+                  }
+                );
+              }
+            );
+          });
         });
       });
     });
