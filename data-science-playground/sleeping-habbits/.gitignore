@@ -1,0 +1,6 @@
+# Generated intermediates.
+temporary_fluids.csv
+
+# Generated results.
+*.pdf
+*.png
