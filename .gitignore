@@ -8,3 +8,10 @@ azure_error
 *.ogg
 *.pyc
 *.swp
+
+# Ignore the whole directory:
+/c/learn-c-the-hard-way/*
+
+# Then make the exclusions:
+!/c/learn-c-the-hard-way/*.c
+!/c/learn-c-the-hard-way/Makefile
