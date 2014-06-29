@@ -14,4 +14,5 @@ azure_error
 
 # Then make the exclusions:
 !/c/learn-c-the-hard-way/*.c
+!/c/learn-c-the-hard-way/*.h
 !/c/learn-c-the-hard-way/Makefile
