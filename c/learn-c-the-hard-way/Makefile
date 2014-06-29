@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -DNDEBUG
 
 SOURCE := $(filter-out object.c, $(wildcard *.c))
 BINARIES := $(patsubst %.c, %, $(SOURCE))
