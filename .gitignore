@@ -16,3 +16,6 @@ azure_error
 !/c/learn-c-the-hard-way/*.c
 !/c/learn-c-the-hard-way/*.h
 !/c/learn-c-the-hard-way/Makefile
+!/c/learn-c-the-hard-way/devpkg/
+/c/learn-c-the-hard-way/devpkg/*.o
+/c/learn-c-the-hard-way/devpkg/devpkg
