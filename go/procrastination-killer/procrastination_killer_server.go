@@ -35,6 +35,14 @@ func root (response http.ResponseWriter, request *http.Request) {
 		"TDD Kata in JavaScript",
 		"TDD Kata in C#",
 
+		"Pattern Kata in C#",
+		"Pattern Kata in Java",
+
+		"Write one assignment from 'Learn you some Erlang for great good!'",
+		"Write one assignment from 'Learn C the hard way'",
+		"Write one assignment from 'Structure and Interpretation of Computer Programs'",
+		"Write one assignment from 'Distributed Systems'",
+
 		"Prepare one article to the blog",
 		"Prepare one assignment about HTML5 / CSS3 / JavaScript",
 	}
